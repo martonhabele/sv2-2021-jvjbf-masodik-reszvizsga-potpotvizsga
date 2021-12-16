@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class UserFileManager {
     private List<User> users = new ArrayList<>();
@@ -28,7 +27,7 @@ public class UserFileManager {
         for (int i = 0; i < users.size(); i++) {
             String[] temp = users.get(i).getEmail().split("@");
             if (users.get(i).getUserName().equalsIgnoreCase(temp[0])) {
-                userToWrite.add(users.get(i).toString());
+                userToWrite.add(users.get(i).getUserName());
             }
         }
         Files.write(path, userToWrite);
